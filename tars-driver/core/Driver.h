@@ -14,10 +14,15 @@ class Driver
         void submitCommand(const Command& cmd);
 
     private:
-        void updatePose(float deltaTimeMs);
+        void processIdle();
+        void processValidation();
+        void processPreparation();
+        void processExecution(float deltaTimeMs);
+        void processReset();
 
         StateMachine m_stateMachine;
         ActuatorBackend& m_actuatorBackend;
+        Command m_pendingCommand;
         std::vector<Joint> m_joints;
 
         float m_poseTime = 0.0f;

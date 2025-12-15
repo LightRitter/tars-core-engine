@@ -9,3 +9,8 @@ DriverState StateMachine::current() const
 {
     return m_state;
 }
+
+bool StateMachine::isError() const
+{
+    return m_state == DriverState::ERROR;
+}
