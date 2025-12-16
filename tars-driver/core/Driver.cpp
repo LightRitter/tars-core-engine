@@ -123,4 +123,8 @@ void Driver::processPreparation()
 
 void Driver::processIdle()
 {
+    if (m_pendingCommand.type != CommandType::NONE)
+    {
+        m_stateMachine.transition(DriverState::VALIDATING_COMMAND);
+    }
 }
