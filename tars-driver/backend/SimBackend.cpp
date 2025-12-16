@@ -10,7 +10,7 @@ void SimBackend::setJoint(int id, float value)
 
 void SimBackend::dump() const
 {
-    for (size_t i = 0; i < m_joints.size(), ++i)
+    for (size_t i = 0; i < m_joints.size(); ++i)
     {
          std::cout << "J" << i << ":" << m_joints[i] << " ";
     }

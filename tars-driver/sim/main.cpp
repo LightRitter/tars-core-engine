@@ -19,7 +19,7 @@ int main()
     {
         driver.update(10.0f);
         backend.dump();
-         std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 
     return 0;
