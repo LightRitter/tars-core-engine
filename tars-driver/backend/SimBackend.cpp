@@ -5,6 +5,11 @@ SimBackend::SimBackend(int jointCount) : m_joints(jointCount, 0.0f) {}
 
 void SimBackend::setJoint(int id, float value)
 {
+    if (id < 0 || static_cast<size_t>(id) >= m_joints.size())
+    {
+        return;
+    }
+    
     m_joints[id] = value;
 }
 
