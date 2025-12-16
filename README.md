@@ -1,2 +1,2 @@
-# tars-core-engine
-Central driving and decision core for TARS
+# TARS Core Engine
+The main driving engine for robotic systems.
