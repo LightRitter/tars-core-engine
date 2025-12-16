@@ -120,3 +120,7 @@ void Driver::processPreparation()
 
     m_stateMachine.transition(DriverState::EXECUTING_POSE);
 }
+
+void Driver::processIdle()
+{
+}

@@ -20,7 +20,7 @@ int main()
     {
         driver.update(16.0f);
         backend.dump();
-        std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(16));
     }
 
     return 0;
