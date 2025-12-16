@@ -65,17 +65,17 @@ void Driver::update(float deltaTimeMs)
 void Driver::processExecution(float deltaTimeMs)
 {
     m_poseTime += deltaTimeMs;
-    float t = m_poseTime / m_poseDuration;
-
-    if (t >= 1.0f)
-    {
-        m_stateMachine.transition(DriverState::HOLDING_POSE);
-        return;
-    }
+    float rawT = m_poseTime / m_poseDuration;
+    float t = (rawT >= 1.0f) ? 1.0f : rawT;
 
     for (auto& j : m_joints)
     {
-        j.position += (j.target - j.position) * t;
+        j.position = j.start + (j.target - j.position) * t;
+    }
+
+    if (rawT >= 1.0f)
+    {
+        m_stateMachine.transition(DriverState::HOLDING_POSE);
     }
 }
 
@@ -112,6 +112,7 @@ void Driver::processPreparation()
     for (auto& j : m_joints)
     {
         j.target = j.position;  // placeholder
+        j.start = j.position;
     }
 
     m_poseTime = 0.0f;
